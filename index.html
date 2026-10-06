@@ -186,38 +186,39 @@
                   <p class="text-muted small mb-4 text-center">Please note the alternating morning and afternoon
                     sessions below.</p>
                   <div class="learning-half-days-grid p-3 bg-light rounded-4 border">
-                    <div><strong>28 January 2026</strong></div>
+                    <div data-lhd="2026-01-28"><strong>28 January 2026</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
-                    <div><strong>19 February 2026</strong></div>
+                    <div data-lhd="2026-02-19"><strong>19 February 2026</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
-                    <div><strong>17 March 2026</strong></div>
+                    <div data-lhd="2026-03-17"><strong>17 March 2026</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
                     <hr class="grid-divider my-2">
                     <hr class="grid-divider my-2">
-                    <div><strong>7 April 2026</strong></div>
+                    <div data-lhd="2026-04-07"><strong>7 April 2026</strong></div>
                     <div class="text-end text-info fw-bold">1pm to 5pm</div>
-                    <div><strong>6 May 2026</strong></div>
+                    <div data-lhd="2026-05-06"><strong>6 May 2026</strong></div>
                     <div class="text-end text-info fw-bold">1pm to 5pm</div>
-                    <div><strong>11 June 2026</strong></div>
+                    <div data-lhd="2026-06-11"><strong>11 June 2026</strong></div>
                     <div class="text-end text-info fw-bold">1pm to 5pm</div>
-                    <div><strong>29 July 2026</strong></div>
+                    <div data-lhd="2026-07-29"><strong>29 July 2026</strong></div>
                     <div class="text-end text-info fw-bold">1pm to 5pm</div>
-                    <div><strong>18 August 2026</strong></div>
+                    <div data-lhd="2026-08-18"><strong>18 August 2026</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
-                    <div><strong>30 September 2026</strong></div>
+                    <div data-lhd="2026-09-30"><strong>30 September 2026</strong></div>
                     <div class="text-end text-info fw-bold">1pm to 5pm</div>
-                    <div><strong>15 October 2026</strong></div>
+                    <div data-lhd="2026-10-15"><strong>15 October 2026</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
-                    <div><strong>12 November 2026</strong></div>
+                    <div data-lhd="2026-11-12"><strong>12 November 2026</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
-                    <div><strong>1 December 2026</strong></div>
+                    <div data-lhd="2026-12-01"><strong>1 December 2026</strong></div>
                     <div class="text-end text-info fw-bold">1pm to 5pm</div>
-                    <div><strong>14 January 2027</strong></div>
+                    <div data-lhd="2027-01-14"><strong>14 January 2027</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
-                    <div><strong>16 February 2027</strong></div>
+                    <div data-lhd="2027-02-16"><strong>16 February 2027</strong></div>
                     <div class="text-end text-primary fw-bold">9am to 1pm</div>
-                    <div><strong>31 March 2027</strong></div>
+                    <div data-lhd="2027-03-31"><strong>31 March 2027</strong></div>
                     <div class="text-end text-info fw-bold">1pm to 5pm</div>
+                    <p class="text-muted small mb-0 text-center lhd-empty d-none">No upcoming learning half days are scheduled at this time.</p>
                   </div>
                   <div class="mt-4 p-3 bg-white border rounded-3 small shadow-sm">
                     <i class="bi bi-info-circle-fill text-primary me-2"></i>
@@ -348,9 +349,9 @@
 
         <div class="col-lg-4">
           <div class="sticky-top" style="top: 20px; z-index: 10;">
-            <div class="card shadow-sm rounded-4 overflow-hidden mb-4 border border-3 border-primary">
+            <div class="card shadow-sm rounded-4 overflow-hidden mb-4 border border-3" style="border-color: #E10097 !important;">
               <div class="card-header bg-white py-3 border-0">
-                <h5 class="fw-bold mb-0 text-primary">
+                <h5 id="upcomingCoursesTitle" class="fw-bold mb-0" style="color: #ae2573;">
                   <i class="bi bi-megaphone-fill me-2"></i>Upcoming Learning Half Day Courses
                 </h5>
               </div>
@@ -400,6 +401,26 @@
   <script src="script/pages/home.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", initHomePage);
+  </script>
+  <script>
+    (function filterLearningHalfDays() {
+      const grid = document.querySelector(".learning-half-days-grid");
+      if (!grid) return;
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const entries = grid.querySelectorAll("[data-lhd]");
+      let visible = 0;
+      entries.forEach((entry) => {
+        const d = new Date(entry.dataset.lhd + "T00:00:00");
+        const isFuture = d.getTime() > today.getTime();
+        const next = entry.nextElementSibling;
+        entry.style.display = isFuture ? "" : "none";
+        if (next) next.style.display = isFuture ? "" : "none";
+        if (isFuture) visible++;
+      });
+      const empty = grid.querySelector(".lhd-empty");
+      if (empty) empty.classList.toggle("d-none", visible !== 0);
+    })();
   </script>
 </body>
 

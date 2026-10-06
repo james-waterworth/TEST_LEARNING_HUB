@@ -1312,6 +1312,26 @@ header,
   color: #212529;
 }
 
+.fc .fc-col-header-cell {
+  background-color: #005EB8;
+  color: #ffffff;
+}
+
+.fc .fc-col-header-cell a,
+.fc .fc-col-header-cell-caption {
+  color: #ffffff;
+}
+
+.fc .fc-daygrid-day-number,
+.fc .fc-daygrid-event,
+.fc .fc-daygrid-event .fc-event-title,
+.fc .fc-daygrid-more-link,
+.fc .fc-popover-header .fc-popover-title,
+.fc .fc-event-title a,
+.fc a {
+  color: #005EB8;
+}
+
 /* Agenda List View Styling */
 .fc-theme-standard .fc-list {
   border: 1px solid #e2e8f0;
@@ -1511,6 +1531,19 @@ header,
   margin-bottom: 0.65rem;
 }
 
+/* Collapsible example entry — toggle icon */
+.lhd-example-card .lhd-toggle-icon {
+  transition: transform 0.25s ease;
+}
+
+.lhd-example-card [aria-expanded="true"] .lhd-toggle-icon.bi-plus-circle::before {
+  content: "\F286"; /* dash-circle */
+}
+
+.lhd-example-card [aria-expanded="true"] .lhd-toggle-icon {
+  transform: rotate(180deg);
+}
+
 /* Toolkit step badges */
 .lhd-step-badge {
   width: 40px;
@@ -1571,6 +1604,80 @@ header,
   color: #495057;
   padding: 0.85rem 1rem;
   background-color: #fff;
+}
+
+/* Search submit button inside the blue header — light variant for contrast */
+.lhd-search-btn {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #005EB8;
+  font-weight: 600;
+}
+
+.lhd-search-btn:hover,
+.lhd-search-btn:focus {
+  background-color: #e6f0ff;
+  border-color: #e6f0ff;
+  color: #003087;
+}
+
+.lhd-search-btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+/* FAQs page — section banners use NHS Blue (#005EB8) */
+.lhd-faq-banner {
+  background-color: #005EB8 !important;
+  border-color: #005EB8 !important;
+  color: #ffffff;
+}
+
+/* Info-only accordion item (e.g. Learning Representatives):
+   amber palette so it reads as a different category, not a form field. */
+.lhd-tips-accordion .accordion-item.lhd-tips-info {
+  border: 1px solid rgba(176, 116, 0, 0.35);
+  background-color: #fff7e6;
+}
+
+.lhd-tips-accordion .accordion-item.lhd-tips-info .accordion-button {
+  color: #6b4500;
+  background-color: #fff3d6;
+  border-left: 4px solid #f0a500;
+}
+
+.lhd-tips-accordion .accordion-item.lhd-tips-info .accordion-button:not(.collapsed) {
+  color: #4a3000;
+  background-color: #ffe9b3;
+  box-shadow: inset 0 -1px 0 rgba(176, 116, 0, 0.35);
+}
+
+.lhd-tips-accordion .accordion-item.lhd-tips-info .accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.25);
+  border-color: #f0a500;
+}
+
+.lhd-tips-accordion .accordion-item.lhd-tips-info .accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23b07400'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.lhd-tips-accordion .accordion-item.lhd-tips-info .accordion-body {
+  background-color: #fffaf0;
+  color: #4a3000;
+}
+
+.lhd-tips-accordion .accordion-item.lhd-tips-info .lhd-info-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b4500;
+  background-color: #f0a500;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
 /* Theme-aware adjustments */

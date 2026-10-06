@@ -241,7 +241,7 @@ function renderUpcomingList(containerId, eventsSource = allEvents) {
 
   // Extended to 60 days (approx 2 months) to cover April requirements
   const twoMonthsLater = new Date();
-  twoMonthsLater.setDate(today.getDate() + 60);
+  twoMonthsLater.setDate(today.getDate() + 30);
 
   const upcoming = eventsSource
     .filter((ev) => ev.start >= today && ev.start <= twoMonthsLater)
@@ -303,7 +303,7 @@ function generateActionButtons(item, primaryColorClass = "btn-info") {
         if (item.CourseButtonText) {
             btnText = item.CourseButtonText;
         } else if (lowerLink.includes("my.esr.nhs.uk")) {
-            btnText = "ESR Enrolment";
+            btnText = "Enrol";
         } else if (lowerLink.includes("youtu") || lowerLink.includes("vimeo")) {
             btnText = "Watch Video";
         } else if (lowerLink.includes("intranet.rdash")) {

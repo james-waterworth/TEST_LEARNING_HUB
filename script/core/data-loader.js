@@ -148,7 +148,7 @@ function generateActionButtons(item, primaryColorClass = "btn-info") {
     if (item.CourseButtonText) {
       btnText = item.CourseButtonText;
     } else if (lowerLink.includes("my.esr.nhs.uk")) {
-      btnText = "ESR Enrolment";
+      btnText = "Enrol";
     } else if (lowerLink.includes("youtu") || lowerLink.includes("vimeo")) {
       btnText = "Watch Video";
     } else if (lowerLink.includes("intranet.rdash")) {
@@ -206,16 +206,23 @@ function renderUpcomingList(containerId, eventsSource = allEvents) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const twoMonthsLater = new Date();
-  twoMonthsLater.setDate(today.getDate() + 60);
+  const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+  const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+  monthEnd.setHours(23, 59, 59, 999);
+
+  const currentMonthLabel = today.toLocaleString("en-GB", { month: "long" });
+  const titleEl = document.getElementById("upcomingCoursesTitle");
+  if (titleEl && containerId !== "upcomingListCatalogue") {
+    titleEl.innerHTML = `<i class="bi bi-megaphone-fill me-2"></i>Upcoming Learning Half Day Courses (${currentMonthLabel})`;
+  }
 
   const upcoming = eventsSource
-    .filter((ev) => ev.start >= today && ev.start <= twoMonthsLater)
+    .filter((ev) => ev.start >= monthStart && ev.start <= monthEnd)
     .sort((a, b) => a.start - b.start);
 
   if (upcoming.length === 0) {
     container.innerHTML =
-      '<div class="p-4 text-center text-muted">No sessions in the next 2 months.</div>';
+      `<div class="p-4 text-center text-muted">No sessions in ${currentMonthLabel}.</div>`;
     return;
   }
 

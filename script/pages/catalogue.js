@@ -188,20 +188,18 @@ function initCalendar() {
   const el = document.getElementById("calendar");
   if (!el || calendar) return;
   calendar = new FullCalendar.Calendar(el, {
-    initialView: "listMonth",
+    initialView: "dayGridMonth",
     headerToolbar: {
       left: "prev,next today",
       center: "title",
-      right: "listMonth,dayGridMonth,listYear",
+      right: "dayGridMonth,listYear",
     },
     buttonText: {
       today: "Today",
-      listMonth: "Agenda List",
       dayGridMonth: "Month Grid",
       listYear: "Full Year",
     },
     views: {
-      listMonth: { buttonText: "Agenda List" },
       dayGridMonth: { buttonText: "Month Grid", dayMaxEvents: 3, moreLinkClick: "popover" },
       listYear: { buttonText: "Full Year" },
     },

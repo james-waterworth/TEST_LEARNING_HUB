@@ -51,7 +51,12 @@ function injectHeader(activePage) {
       <div class="container mt-3">
         <div class="row align-items-center g-2">
           <div class="col">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search" onkeyup="if(event.key==='Enter')searchPages()">
+            <div class="input-group">
+              <input type="text" id="searchInput" class="form-control" placeholder="Search — press Enter to search" aria-label="Search" aria-describedby="searchSubmitBtn" onkeyup="if(event.key==='Enter')searchPages()">
+              <button type="button" id="searchSubmitBtn" class="btn btn-light lhd-search-btn" aria-label="Search" onclick="searchPages()" title="Search (press Return)">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
           </div>
           <div class="col-auto">
             <div class="d-flex flex-wrap align-items-center gap-2 control-toolbar p-2 rounded">
