@@ -1545,5 +1545,14 @@
     "contact": "",
     "address": "220 Badsley Moor Lane\nRotherham\nS65 2QL",
     "rooms": [{ "n": "Large Meeting Room", "c": "15" }]
+  },
+  {
+    "site": "Hexthorpe",
+    "venue": "Bowling Club",
+    "type": "External",
+    "contact": "01302 361600\ninfo@doncasterbowls.co.uk",
+    "address": "Urban Road,\nDoncaster\nDN4 0EP" ,
+    "rooms": [{ "n": "Large Meeting Room", "c": "80" }]
   }
+
 ]

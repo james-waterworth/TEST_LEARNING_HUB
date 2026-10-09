@@ -206,7 +206,6 @@ function renderUpcomingList(containerId, eventsSource = allEvents) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
   const monthEnd = new Date(today.getFullYear(), today.getMonth() + 1, 0);
   monthEnd.setHours(23, 59, 59, 999);
 
@@ -217,7 +216,7 @@ function renderUpcomingList(containerId, eventsSource = allEvents) {
   }
 
   const upcoming = eventsSource
-    .filter((ev) => ev.start >= monthStart && ev.start <= monthEnd)
+    .filter((ev) => ev.start >= today && ev.start <= monthEnd)
     .sort((a, b) => a.start - b.start);
 
   if (upcoming.length === 0) {
