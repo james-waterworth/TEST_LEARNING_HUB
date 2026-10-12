@@ -1812,3 +1812,22 @@ body.theme-contrast .lhd-table .col-blue,
 body.theme-contrast .lhd-table .col-peach {
   background-color: #2b2b2b !important;
 }
+
+/* ============================================================
+   20. MAST STATIC IMAGE ZOOM
+   Container clips the scaled image so only the focused area shows.
+   transform-origin is set via JS from data-zoom-x / data-zoom-y.
+============================================================ */
+.mast-zoom-frame {
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid #dee2e6;
+}
+
+.mast-zoom-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: 50% 50%;
+}
+}
