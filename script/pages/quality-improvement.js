@@ -73,7 +73,7 @@ function renderQI(qiData) {
           <span class="fw-bold d-block text-dark">${cleanName}</span>
           <small class="text-muted opacity-75">${item.Trainer || "Self-Directed"}</small>
       </div>
-      ${sessionCount > 0 ? `<span class="badge rounded-pill text-white px-3 py-2 fw-bold shadow-sm" style="background-color: #6f42c1; font-size: 0.85rem;"><i class="bi ${sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event"} me-1"></i>${sessionCount === 1 ? "1 Available Date" : sessionCount + " Dates"}</span>` : `<i class="bi bi-chevron-down fs-5" style="color: #6f42c1;"></i>`}
+      ${sessionCount > 0 ? `<span class="badge rounded-pill text-white px-3 py-2 fw-bold shadow-sm" style="background-color: #6f42c1; font-size: 0.85rem;"><i class="bi ${sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event"} me-1"></i>${sessionCount === 1 ? "1 Date" : sessionCount + " Dates"}</span>` : `<span class="badge rounded-pill text-white px-3 py-2 fw-bold shadow-sm" style="background-color: #6f42c1; font-size: 0.85rem; opacity: 0.7;">0 Dates</span>`}
   </button>
   <div class="collapse" id="${id}">
       <div class="card-body bg-white border-top">

@@ -82,6 +82,15 @@ function injectHeader(activePage) {
   const mount = document.getElementById("header-mount");
   if (mount) mount.innerHTML = headerHTML;
 
+  mount?.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      link.classList.remove("nav-link-flash");
+      void link.offsetWidth;
+      link.classList.add("nav-link-flash");
+      window.setTimeout(() => link.classList.remove("nav-link-flash"), 220);
+    });
+  });
+
   // Wire up theme selector after injection
   initThemeSelector();
 }

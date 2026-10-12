@@ -148,7 +148,7 @@ function generateActionButtons(item, primaryColorClass = "btn-info") {
     if (item.CourseButtonText) {
       btnText = item.CourseButtonText;
     } else if (lowerLink.includes("my.esr.nhs.uk")) {
-      btnText = "Enrol";
+      btnText = "Book";
     } else if (lowerLink.includes("youtu") || lowerLink.includes("vimeo")) {
       btnText = "Watch Video";
     } else if (lowerLink.includes("intranet.rdash")) {

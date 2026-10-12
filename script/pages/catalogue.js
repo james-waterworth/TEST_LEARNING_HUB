@@ -82,7 +82,7 @@ function renderCatalogue(classList, courseDescs) {
             <span class="fw-bold d-block">${cleanCourseName}</span>
             <small class="text-info-emphasis opacity-75">${group.info.Trainer || "Self-Directed"}</small>
         </div>
-        <span class="badge ${sessionCount > 0 ? "bg-primary text-white" : "bg-light text-muted border"} rounded-pill px-3 py-2 fw-bold shadow-sm" style="font-size: 0.85rem;"><i class="bi ${sessionCount > 0 ? (sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event") : "bi-calendar-x"} me-1"></i>${sessionCount === 1 ? "1 Available Date" : sessionCount > 1 ? sessionCount + " Dates" : "0 Dates"}</span>
+        <span class="badge ${sessionCount > 0 ? "bg-primary text-white" : "bg-light text-muted border"} rounded-pill px-3 py-2 fw-bold shadow-sm" style="font-size: 0.85rem;"><i class="bi ${sessionCount > 0 ? (sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event") : "bi-calendar-x"} me-1"></i>${sessionCount === 1 ? "1 Date" : sessionCount > 1 ? sessionCount + " Dates" : "0 Dates"}</span>
     </button>
     <div class="collapse" id="${id}">
         <div class="card-body bg-white border-top border-info-subtle">

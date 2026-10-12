@@ -303,7 +303,7 @@ function generateActionButtons(item, primaryColorClass = "btn-info") {
         if (item.CourseButtonText) {
             btnText = item.CourseButtonText;
         } else if (lowerLink.includes("my.esr.nhs.uk")) {
-            btnText = "Enrol";
+            btnText = "Book";
         } else if (lowerLink.includes("youtu") || lowerLink.includes("vimeo")) {
             btnText = "Watch Video";
         } else if (lowerLink.includes("intranet.rdash")) {
@@ -408,7 +408,7 @@ function renderCatalogue(classList, courseDescs) {
             <span class="fw-bold d-block">${cleanCourseName}</span>
             <small class="text-info-emphasis opacity-75">${group.info.Trainer || "Self-Directed"}</small>
         </div>
-        <span class="badge ${sessionCount > 0 ? "bg-primary text-white" : "bg-light text-muted border"} rounded-pill px-3 py-2 fw-bold shadow-sm" style="font-size: 0.85rem;"><i class="bi ${sessionCount > 0 ? (sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event") : "bi-calendar-x"} me-1"></i>${sessionCount === 1 ? "1 Available Date" : sessionCount > 1 ? sessionCount + " Dates" : "0 Dates"}</span>
+        <span class="badge ${sessionCount > 0 ? "bg-primary text-white" : "bg-light text-muted border"} rounded-pill px-3 py-2 fw-bold shadow-sm" style="font-size: 0.85rem;"><i class="bi ${sessionCount > 0 ? (sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event") : "bi-calendar-x"} me-1"></i>${sessionCount === 1 ? "1 Date" : sessionCount > 1 ? sessionCount + " Dates" : "0 Dates"}</span>
     </button>
     
     <div class="collapse" id="${id}">
@@ -1011,7 +1011,7 @@ function renderQI(qiData) {
           <span class="fw-bold d-block text-dark">${cleanName}</span>
           <small class="text-muted opacity-75">${item.Trainer || "Self-Directed"}</small>
       </div>
-      ${sessionCount > 0 ? `<span class="badge rounded-pill text-white px-3 py-2 fw-bold shadow-sm" style="background-color: #6f42c1; font-size: 0.85rem;"><i class="bi ${sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event"} me-1"></i>${sessionCount === 1 ? "1 Available Date" : sessionCount + " Dates"}</span>` : `<i class="bi bi-chevron-down fs-5" style="color: #6f42c1;"></i>`}
+      ${sessionCount > 0 ? `<span class="badge rounded-pill text-white px-3 py-2 fw-bold shadow-sm" style="background-color: #6f42c1; font-size: 0.85rem;"><i class="bi ${sessionCount === 1 ? "bi-calendar-check" : "bi-calendar-event"} me-1"></i>${sessionCount === 1 ? "1 Date" : sessionCount + " Dates"}</span>` : `<span class="badge rounded-pill text-white px-3 py-2 fw-bold shadow-sm" style="background-color: #6f42c1; font-size: 0.85rem; opacity: 0.7;">0 Dates</span>`}
   </button>
   <div class="collapse" id="${id}">
       <div class="card-body bg-white border-top">
