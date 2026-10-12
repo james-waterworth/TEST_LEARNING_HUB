@@ -1,0 +1,14 @@
+# Backup / scratch files
+*.bkup
+*_backup*
+*_bkup*
+Data/ClassList_backup*
+Data/roomsbckup.json
+Data/ClassList_bkun.json
+
+# OS files
+.DS_Store
+
+# Keep raw spreadsreads tracked (they trigger the workflow)
+# but ignore temporary Excel lock files
+~$*.xlsx

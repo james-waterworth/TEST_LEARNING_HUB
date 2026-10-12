@@ -1,0 +1,54 @@
+name: Update Class List
+
+on:
+  push:
+    paths:
+      - "Data/raw/**"
+  workflow_dispatch:
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install openpyxl
+        run: pip install openpyxl
+
+      - name: Find and convert spreadsheet
+        run: |
+          # Find the most recently added xlsx in Data/raw/
+          XLSX=$(find Data/raw -name "*.xlsx" -type f | sort | tail -1)
+          if [ -z "$XLSX" ]; then
+            echo "No xlsx file found in Data/raw/"
+            exit 1
+          fi
+          echo "Converting: $XLSX"
+          python scripts/convert_classlist.py "$XLSX" Data/ClassList.json
+
+      - name: Commit updated ClassList.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Data/ClassList.json
+          if git diff --cached --quiet; then
+            echo "No changes to ClassList.json — data was identical."
+          else
+            git commit -m "chore: update ClassList.json from spreadsheet
+
+          Converted by GitHub Actions workflow (update-classlist.yml).
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            git push
+          fi
