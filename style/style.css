@@ -1137,7 +1137,9 @@ footer {
 
 /* 2. The SELECTED (Active) option */
 #trainingTab #staff-tab.active,
-#trainingTab #manager-tab.active {
+#trainingTab #manager-tab.active,
+#trainingTab #external-learning-tab.active,
+#trainingTab #self-directed-tab.active {
   background-color: #198754 !important;
   /* Solid Green */
   color: #ffffff !important;
@@ -1621,22 +1623,79 @@ header,
 }
 
 /* Search submit button inside the blue header — light variant for contrast */
-.lhd-search-btn {
+/* ============================================================
+   NHS UK SEARCH INPUT
+=========================================================== */
+.nhsuk-search-input__wrapper {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.nhsuk-search-input__input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
   background-color: #ffffff;
-  border-color: #ffffff;
-  color: #005EB8;
-  font-weight: 600;
+  color: #212529;
 }
 
-.lhd-search-btn:hover,
-.lhd-search-btn:focus {
-  background-color: #e6f0ff;
-  border-color: #e6f0ff;
-  color: #003087;
+.nhsuk-search-input__input:focus {
+  border-color: #000000;
+  outline: 3px solid #ffec3a;
+  outline-offset: -2px;
+  box-shadow: none;
 }
 
-.lhd-search-btn:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+.nhsuk-search-input__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  border-left: none;
+  border-right: none;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.nhsuk-search-input__clear:hover {
+  background-color: #f1f3f5;
+  color: #dc3545;
+}
+
+.nhsuk-search-input__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  background-color: #E8EDEE;
+  border: 2px solid transparent;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nhsuk-search-input__button:hover {
+  background-color: #003087;
+  color: #ffffff;
+}
+
+.nhsuk-search-input__button:active {
+  background-color: #ffec3a;
+  color: #000000;
+}
+
+.nhsuk-search-input__button:focus {
+  outline: 3px solid #ffec3a;
+  outline-offset: -2px;
 }
 
 /* FAQs page — section banners use NHS Blue (#005EB8) */

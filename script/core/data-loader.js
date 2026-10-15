@@ -221,7 +221,7 @@ function renderUpcomingList(containerId, eventsSource = allEvents) {
 
   if (upcoming.length === 0) {
     container.innerHTML =
-      `<div class="p-4 text-center text-muted">No sessions in ${currentMonthLabel}.</div>`;
+      `<div class="p-4 text-center text-muted">No upcoming sessions in ${currentMonthLabel}.</div>`;
     return;
   }
 

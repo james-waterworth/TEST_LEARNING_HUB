@@ -51,11 +51,21 @@ function injectHeader(activePage) {
       <div class="container mt-3">
         <div class="row align-items-center g-2">
           <div class="col">
-            <div class="input-group">
-              <input type="text" id="searchInput" class="form-control" placeholder="Search — press Enter to search" aria-label="Search" aria-describedby="searchSubmitBtn" onkeyup="if(event.key==='Enter')searchPages()">
-              <button type="button" id="searchSubmitBtn" class="btn btn-light lhd-search-btn" aria-label="Search" onclick="searchPages()" title="Search (press Return)">
-                <i class="bi bi-search"></i>
-              </button>
+            <div class="nhsuk-search-input">
+              <div class="nhsuk-input-wrapper nhsuk-search-input__wrapper">
+                <input class="nhsuk-input nhsuk-search-input__input" id="searchInput" name="search" type="search" placeholder="Search — press Enter to search" autocomplete="off" aria-label="Search" onkeyup="if(event.key==='Enter')searchPages()">
+                <button class="nhsuk-search-input__clear" id="searchClearBtn" type="button" aria-label="Clear search" onclick="clearSearch()" title="Clear search" style="display: none;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+                <button class="nhsuk-button nhsuk-search-input__button" id="searchSubmitBtn" type="submit" aria-label="Search" onclick="searchPages()" title="Search (press Return)">
+                  <svg class="nhsuk-icon nhsuk-icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" focusable="false" aria-hidden="true">
+                    <path d="m20.7 18.9-4.1-4.1a7 7 0 1 0-1.4 1.4l4 4.1a1 1 0 0 0 1.5 0c.4-.4.4-1 0-1.4ZM6 10.6a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
           <div class="col-auto">
@@ -93,6 +103,7 @@ function injectHeader(activePage) {
 
   // Wire up theme selector after injection
   initThemeSelector();
+  initSearchClearButton();
 }
 
 /**

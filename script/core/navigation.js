@@ -16,6 +16,30 @@ function searchPages() {
 }
 
 /**
+ * Clear the search input and hide the clear button.
+ */
+function clearSearch() {
+  const input = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("searchClearBtn");
+  if (!input) return;
+  input.value = "";
+  input.focus();
+  if (clearBtn) clearBtn.style.display = "none";
+}
+
+/**
+ * Show/hide the clear button based on input content.
+ */
+function initSearchClearButton() {
+  const input = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("searchClearBtn");
+  if (!input || !clearBtn) return;
+  input.addEventListener("input", () => {
+    clearBtn.style.display = input.value.trim() !== "" ? "flex" : "none";
+  });
+}
+
+/**
  * Theme selector — wire up the high-contrast toggle button after header injection.
  */
 function initThemeSelector() {
