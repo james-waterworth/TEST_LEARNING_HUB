@@ -30,7 +30,7 @@ async function initSearchPage() {
     const title = utils.cleanTitle(d.Course || d.Title || "").toLowerCase();
     const desc = (d.Description || "").toLowerCase();
     if (title.includes(query) || desc.includes(query)) {
-      results.push({ type: "Course", title: utils.cleanTitle(d.Course || d.Title), description: d.Description, link: d.CourseLink || "#" });
+      results.push({ type: "Course", title: utils.cleanTitle(d.Course || d.Title), description: d.Description, link: `course-catalogue.html?course=${encodeURIComponent(d.Course || d.Title)}` });
     }
   });
 
@@ -66,7 +66,7 @@ async function initSearchPage() {
       ${results
         .map(
           (r) => `
-        <div class="list-group-item list-group-item-action mb-2 border-0 shadow-sm rounded-3">
+        <a href="${r.link}" class="list-group-item list-group-item-action mb-2 border-0 shadow-sm rounded-3 text-decoration-none">
           <div class="d-flex justify-content-between align-items-start">
             <div>
               <span class="badge bg-primary mb-1">${r.type}</span>
@@ -74,7 +74,7 @@ async function initSearchPage() {
               <p class="small text-muted mb-0">${(r.description || "").substring(0, 200)}${(r.description || "").length > 200 ? "..." : ""}</p>
             </div>
           </div>
-        </div>`,
+        </a>`,
         )
         .join("")}
     </div>`;

@@ -36,10 +36,10 @@ function renderRoomDirectory(rooms) {
       </td>
       <td class="small text-muted">${room.Address}</td>
       <td>
-        <div class="fw-bold text-dark">${room.RoomName}</div>
+        <div class="text-dark">${room.RoomName}</div>
       </td>
       <td class="text-center">
-        <span class="capacity-pill badge rounded-pill bg-light text-danger border">${room.Capacity}</span>
+        <span class="capacity-pill badge rounded-pill bg-light text-primary border">${room.Capacity}</span>
       </td>
     </tr>`,
     )

@@ -31,7 +31,7 @@ function injectHeader(activePage) {
   <header class="nhs-header">
     <div class="container">
       <div class="brand-row">
-        <img src="Assets/LMHub_Logo.png" class="header-left-logo" alt="Learning Hub logo" />
+        <img src="Assets/learning_hub.svg" class="header-left-logo" alt="Learning Hub logo" />
         <h1></h1>
         <img src="Assets/rdashwhite.PNG" class="header-right-logo" alt="RDaSH logo" />
       </div>
@@ -53,7 +53,7 @@ function injectHeader(activePage) {
           <div class="col">
             <div class="nhsuk-search-input">
               <div class="nhsuk-input-wrapper nhsuk-search-input__wrapper">
-                <input class="nhsuk-input nhsuk-search-input__input" id="searchInput" name="search" type="search" placeholder="Search — press Enter to search" autocomplete="off" aria-label="Search" onkeyup="if(event.key==='Enter')searchPages()">
+                <input class="nhsuk-input nhsuk-search-input__input" id="searchInput" name="search" type="search" placeholder="" autocomplete="off" aria-label="Search" onkeyup="if(event.key==='Enter')searchPages()">
                 <button class="nhsuk-search-input__clear" id="searchClearBtn" type="button" aria-label="Clear search" onclick="clearSearch()" title="Clear search" style="display: none;">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
