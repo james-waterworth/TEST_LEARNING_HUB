@@ -909,6 +909,28 @@ footer {
   width: 100%;
 }
 
+.site-footer {
+  background-color: #d8dddf;
+  border-top: 3px solid #005EB8;
+  color: #26467f;
+}
+
+.site-footer h6,
+.site-footer p,
+.site-footer .btn-back-to-top {
+  color: #26467f;
+}
+
+.site-footer .btn-back-to-top {
+  border: 1px solid #26467f;
+}
+
+.site-footer .btn-back-to-top:hover,
+.site-footer .btn-back-to-top:focus-visible {
+  background-color: #26467f;
+  color: #ffffff;
+}
+
 .footer_image {
   width: 100%;
   height: auto;

@@ -111,25 +111,19 @@ function injectHeader(activePage) {
  */
 function injectFooter() {
   const footerHTML = `
-  <footer class="mt-auto py-5 border-top bg-light">
+  <footer class="site-footer mt-auto py-5">
     <div class="container text-center">
-      <div class="row mb-4">
-        <div class="col">
-          <img src="https://assets.codepen.io/8889025/RDaSH_LMRH4.png" class="footer-logo"
-            style="max-height: 100px; opacity: 1;">
-        </div>
-      </div>
       <div class="row mb-3">
         <div class="col">
-          <h6 class="text-uppercase fw-bold text-info mb-1" style="font-size: 0.75rem; letter-spacing: 2px;">
+          <h6 class="text-uppercase fw-bold mb-1" style="font-size: 0.75rem; letter-spacing: 2px;">
             RDaSH Learning Matters
           </h6>
-          <p class="small text-muted mb-0">Learning Resource Hub &copy; 2026</p>
+          <p class="small mb-0">Learning Resource Hub &copy; 2026</p>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <button class="btn btn-sm btn-outline-secondary rounded-pill px-3"
+          <button class="btn btn-sm btn-back-to-top rounded-pill px-3"
             onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
             <i class="bi bi-arrow-up me-1"></i> Back to Top
           </button>
