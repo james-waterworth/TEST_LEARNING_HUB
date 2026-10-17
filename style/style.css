@@ -1131,6 +1131,16 @@ footer {
   max-width: 450px;
 }
 
+.learning-matters-caption {
+  left: auto;
+  right: 5%;
+}
+
+.learning-matters-caption .caption-box {
+  padding: 1rem 1.25rem;
+  max-width: 360px;
+}
+
 #hubCarousel .carousel-control-prev,
 #hubCarousel .carousel-control-next {
   z-index: 12;
