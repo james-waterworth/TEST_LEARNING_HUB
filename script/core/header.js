@@ -116,9 +116,9 @@ function injectFooter() {
       <div class="row mb-3">
         <div class="col">
           <h6 class="text-uppercase fw-bold mb-1" style="font-size: 0.75rem; letter-spacing: 2px;">
-            RDaSH Learning Matters
+            RDaSH Learning Hub
           </h6>
-          <p class="small mb-0">Learning Resource Hub &copy; 2026</p>
+          <p class="small mb-0"></p>
         </div>
       </div>
       <div class="row">

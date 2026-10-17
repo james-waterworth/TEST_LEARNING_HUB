@@ -1126,6 +1126,11 @@ footer {
   max-width: 500px;
 }
 
+.compact-caption {
+  padding: 1rem 1.25rem;
+  max-width: 450px;
+}
+
 #hubCarousel .carousel-control-prev,
 #hubCarousel .carousel-control-next {
   z-index: 12;
