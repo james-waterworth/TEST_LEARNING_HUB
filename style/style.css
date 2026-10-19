@@ -8,6 +8,12 @@ body {
 }
 
 /* Base font scale applied via body class */
+
+/* Ensure <strong> inside .lead is actually bold — Bootstrap sets .lead to
+   font-weight 300, so "bolder" only computes to 400. */
+.lead strong {
+  font-weight: 700;
+}
 body.scale-small {
   font-size: 0.85rem;
 }
@@ -335,6 +341,24 @@ a.card.tile-card.bg-warning.bg-warning-dark span {
 .navbar-nav .nav-dropdown-hover .dropdown-item.active:hover {
   background-color: #003087;
   color: #ffffff;
+}
+
+/* ============================================================
+   6c. VOLUNTEER MODULE NUMBER BADGES
+   Circular number badges used on the volunteer module tiles.
+============================================================ */
+.volunteer-module-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
 }
 
 /* ============================================================
