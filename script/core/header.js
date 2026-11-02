@@ -22,12 +22,13 @@ function injectHeader(activePage) {
 
   // Volunteer sub-pages shown as a hover dropdown on the Volunteers nav item.
   const volunteerSubPages = [
-    { key: "volunteers",          label: "Home",     href: "Volunteers.html" },
+    { key: "volunteer-home",      label: "Home",     href: "volunteer-home.html" },
     { key: "volunteer-faqs",      label: "FAQs",     href: "volunteer-faqs.html" },
     { key: "volunteer-feedback",  label: "Feedback", href: "volunteer-feedback.html" },
     { key: "volunteer-support",   label: "Support",  href: "volunteer-support.html" },
   ];
   const volunteerActive =
+    activePage === "volunteer-home" ||
     activePage === "volunteers" ||
     activePage === "volunteer-faqs" ||
     activePage === "volunteer-feedback" ||
@@ -42,7 +43,7 @@ function injectHeader(activePage) {
 
   const volunteerDropdown = `
       <li class="nav-item dropdown nav-dropdown-hover">
-        <a class="nav-link dropdown-toggle ${volunteerActive ? "active" : ""}" href="Volunteers.html" aria-haspopup="true" aria-expanded="false">Volunteers</a>
+        <a class="nav-link dropdown-toggle ${volunteerActive ? "active" : ""}" href="volunteer-home.html" aria-haspopup="true" aria-expanded="false">Volunteers</a>
         <ul class="dropdown-menu">
               ${volunteerLinks}
         </ul>
