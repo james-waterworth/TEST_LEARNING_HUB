@@ -32,7 +32,7 @@
 
       <div class="row mb-5">
         <div class="col-12">
-          <div id="hubCarousel" class="carousel slide rounded-4 shadow-lg overflow-hidden" data-bs-ride="carousel">
+          <div id="hubCarousel" class="carousel slide rounded-4 shadow-lg overflow-hidden">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#hubCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#hubCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -130,6 +130,9 @@
             <button class="carousel-control-next" type="button" data-bs-target="#hubCarousel" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
+            </button>
+            <button id="hubCarouselPauseBtn" class="carousel-pause-toggle" type="button" aria-label="Pause carousel" aria-pressed="false">
+              <i class="bi bi-pause-fill" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -379,7 +382,58 @@
   <!-- Page module -->
   <script src="script/pages/home.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", initHomePage);
+    document.addEventListener("DOMContentLoaded", function () {
+      initHomePage();
+
+      const carouselElement = document.getElementById("hubCarousel");
+      if (!carouselElement) return;
+
+      const carousel = bootstrap.Carousel.getOrCreateInstance(carouselElement);
+      const pauseButton = document.getElementById("hubCarouselPauseBtn");
+      if (!pauseButton) return;
+
+      let autoplayTimer = null;
+      const intervalMs = 6000;
+
+      const setPauseButtonState = (isPaused) => {
+        pauseButton.setAttribute("aria-pressed", String(isPaused));
+        pauseButton.setAttribute("aria-label", isPaused ? "Resume carousel" : "Pause carousel");
+        pauseButton.innerHTML = isPaused
+          ? '<i class="bi bi-play-fill" aria-hidden="true"></i>'
+          : '<i class="bi bi-pause-fill" aria-hidden="true"></i>';
+      };
+
+      const stopAutoplay = () => {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      };
+
+      const startAutoplay = () => {
+        stopAutoplay();
+        autoplayTimer = setInterval(() => {
+          if (!carousel._isSliding) {
+            carousel.next();
+          }
+        }, intervalMs);
+      };
+
+      pauseButton.addEventListener("click", function () {
+        const isPaused = pauseButton.getAttribute("aria-pressed") === "true";
+
+        if (isPaused) {
+          startAutoplay();
+          setPauseButtonState(false);
+        } else {
+          stopAutoplay();
+          setPauseButtonState(true);
+        }
+      });
+
+      startAutoplay();
+      setPauseButtonState(false);
+    });
   </script>
   <script>
     (function filterLearningHalfDays() {
